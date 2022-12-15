@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    margin-bottom: 5rem;
+}
+
+.chess-board {
+    border: 2px solid black;
+}
+
+.chess-board .row {
+    width: 400px;
+    height: 50px;
+    font-size: 0;
+}
+
+.chess-board  .row .square {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    font-size: 1rem;
+    position: relative;
+}
+
+.chess-board  .row .square:hover {
+    background-color: red;
+}
+
+.chess-board  .row .square span {
+    position: absolute;
+}
+
+.chess-board  .row .square:first-child span:first-child {
+    top: 50%;
+    left: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.chess-board  .row .square:last-child span:first-child {
+    top: 50%;
+    right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.chess-board  .row .square:first-child span:nth-child(2){
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.chess-board  .row .square:last-child span:nth-child(2){
+    top: -50%;
+    right: 50%;
+    transform: translate(50%);
+}
+
+.chess-board  .row .square:not(:first-child, :last-child) span:first-child {
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.chess-board  .row:last-child .square:first-child span:nth-child(2) {
+    top: 100%;
+    transform: translate(-50%, 50%);
+}
+
+.chess-board  .row:last-child .square:last-child span:nth-child(2) {
+    top: 100%;
+    transform: translate(50%, 50%);
+}
+
+.chess-board  .row:last-child .square:not(:first-child, :last-child) span:first-child {
+    top: 100%;
+    transform: translate(-50%, 50%);
+}
+
+/* modifiche relative alla seconda versione */
+.chess-board .row:nth-child(odd) .square:nth-child(odd) {
+    background-color: #ffcc66;
+}
+
+.chess-board .row:nth-child(even) .square:nth-child(even) {
+    background-color: #ffcc66;
+}
+
+.chess-board .row:nth-child(odd) .square:nth-child(even) {
+    background-color: #1a0000;
+}
+
+.chess-board .row:nth-child(even) .square:nth-child(odd) {
+    background-color: #1a0000;
+}
